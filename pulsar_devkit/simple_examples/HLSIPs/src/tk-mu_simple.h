@@ -47,6 +47,7 @@ typedef ap_fixed<11,5> fz0_t;     // z0  (1 mm over +/-14.9 cm)
 #define ETA_TABLE_SIZE 8192  // 13 unsigned bits
 #define Z0_TABLE_SIZE 1024   // 10 unsigned bits
 
+/*
 // range for LUTs
 #define SINHETA_RANGE 6
 #define ETA_RANGE 3
@@ -56,7 +57,6 @@ typedef ap_fixed<11,5> fz0_t;     // z0  (1 mm over +/-14.9 cm)
 #define INV_ETA_RANGE 1/ETA_RANGE
 #define INV_COSH_RANGE 1/COSH_RANGE
 #define INV_Z0_RANGE 1/Z0_RANGE
-
 
 // Conversions between binary and floating point (using example file to derive)
 #define RINV_CONVERSION 792055              //1314229             // 1/0.000000760902077
@@ -68,7 +68,7 @@ typedef ap_fixed<11,5> fz0_t;     // z0  (1 mm over +/-14.9 cm)
 #define INVETA_CONVERSION 19531261E-10      //original: 11698E-7
 #define INVPHI_CONVERSION 4734119709E-15    //0.000004734119709  // original: 456544E-11
 #define INVZ_CONVERSION 5859375E-8          //0.05859375 //original: 56152375E-9         //0.056152375 -- shift of 1024 for negative values!
-
+*/
 
 // -- Define structs for physics objects in software
 struct TrackObj_tkmu {
@@ -190,7 +190,8 @@ template<class data_T, class res_T>
 void deta_LUT(data_T &data, res_T &res) { 
     /* Gateway to deta_LUT (z0/550) : checks boundaries */
     res = 0;
-    deta_LUT<data_T, res_T, Z0_TABLE_SIZE>(data, res); 
+//    deta_LUT<data_T, res_T, Z0_TABLE_SIZE>(data, res); 
+    deta_LUT<data_T, res_T, 1024>(data, res); 
 
     return;
 }
@@ -239,7 +240,8 @@ template<class data_T, class res_T>
 void delta_minus_LUT(data_T &data, res_T &res) { 
     /* Gateway to delta_minus_LUT (z0/(850-z0)) */
     res = 0;
-    delta_minus_LUT<data_T, res_T, Z0_TABLE_SIZE>(data, res); 
+//    delta_minus_LUT<data_T, res_T, Z0_TABLE_SIZE>(data, res); 
+    delta_minus_LUT<data_T, res_T, 1024>(data, res); 
 
     return;
 }
@@ -289,6 +291,7 @@ void delta_plus_LUT(data_T &data, res_T &res) {
     /* Gateway to delta_plus_LUT (z0/(850+z0)) */
     res = 0;
     delta_plus_LUT<data_T, res_T, Z0_TABLE_SIZE>(data, res); 
+    delta_plus_LUT<data_T, res_T, 1024>(data, res); 
 
     return;
 }
@@ -336,7 +339,8 @@ template<class data_T, class res_T>
 void delta_LUT(data_T &data, res_T &res) { 
     /* Gateway to delta_LUT (z0/850) : checks boundaries */
     res = 0;
-    delta_LUT<data_T, res_T, Z0_TABLE_SIZE>(data, res); 
+//    delta_LUT<data_T, res_T, Z0_TABLE_SIZE>(data, res); 
+    delta_LUT<data_T, res_T, 1024>(data, res); 
 
     return;
 }
@@ -361,7 +365,7 @@ void init_tanh_table(data_T table_out[N_TABLE]) {
     return;
 }
 
-template<class data_T, class res_T, int TABLE_SIZE/*=1024*/>
+template<class data_T, class res_T, int TABLE_SIZE>
 void tanh(data_T &data, res_T &res) {
     // Initialize the lookup table
     res_T tanh_table[TABLE_SIZE];
@@ -385,7 +389,8 @@ template<class data_T, class res_T>
 void tanh(data_T &data, res_T &res) { 
     /* Get the tanh value from the LUT -- symmetric function */
     res = 0;
-    tanh<data_T, res_T, ETA_TABLE_SIZE>(data, res); 
+//    tanh<data_T, res_T, ETA_TABLE_SIZE>(data, res); 
+    tanh<data_T, res_T, 8192>(data, res); 
 
     return;
 }
@@ -410,7 +415,7 @@ void init_cosh_table(data_T table_out[N_TABLE]) {
     return;
 }
 
-template<class data_T, class res_T, int TABLE_SIZE/*=1024*/>
+template<class data_T, class res_T, int TABLE_SIZE>
 void invCosh(data_T &data, res_T &res) {
     // Initialize the lookup table
     res_T cosh_table[TABLE_SIZE];
@@ -436,7 +441,8 @@ void invCosh(data_T &data, res_T &res) {
     /* Get the tanh value from the LUT -- symmetric function */
     // should only get positive values!
     res = 0;
-    invCosh<data_T, res_T, ETA_TABLE_SIZE>(data, res); 
+//    invCosh<data_T, res_T, ETA_TABLE_SIZE>(data, res); 
+    invCosh<data_T, res_T, 8192>(data, res); 
 
     return;
 }
@@ -463,7 +469,7 @@ void init_arcsinh_table(data_T table_out[N_TABLE]) {
     return;
 }
 
-template<class data_T, class res_T, int TABLE_SIZE/*=1024*/>
+template<class data_T, class res_T, int TABLE_SIZE>
 void arcsinh(data_T &data, res_T &res) {
     // Initialize the lookup table
     res_T arcsinh_table[TABLE_SIZE];
@@ -489,7 +495,8 @@ template<class data_T, class res_T>
 void arcsinh(data_T &data, res_T &res) { 
     /* Get the arcsinh value from the LUT -- anti-symmetric function */
     res = 0;
-    arcsinh<data_T, res_T, ETA_TABLE_SIZE>(data, res); 
+//    arcsinh<data_T, res_T, ETA_TABLE_SIZE>(data, res); 
+    arcsinh<data_T, res_T, 8192>(data, res); 
 
     return;
 }

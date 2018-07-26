@@ -20,6 +20,19 @@ HLS with c++
 #include "src/tk-mu_simple.h"
 
 
+// Conversions between binary and floating point (using example file to derive)
+#define RINV_CONVERSION 792055              //1314229             // 1/0.000000760902077
+#define PT_CONVERSION 87719298E-6           // 1/(0.01*0.3*3.8); 87719298E-6
+#define ETA_CONVERSION 512                  //855   // 1/0.0011698 = 854.84698
+#define PHI_CONVERSION 211233               //original: 219037
+#define Z_CONVERSION 17                     //original: 18 // 1/0.05615 = 17.81 -> 18
+#define INVRINV_CONVERSION 1262538462E-15   //0.000001262538462  //original: 760902077E-15    // 0.000000760902077
+#define INVETA_CONVERSION 19531261E-10      //original: 11698E-7
+#define INVPHI_CONVERSION 4734119709E-15    //0.000004734119709  // original: 456544E-11
+#define INVZ_CONVERSION 5859375E-8          //0.05859375 //original: 56152375E-9         //0.056152375 -- shift of 1024 for negative values!
+
+
+
 void read_file(const std::string &file_name, std::vector<std::string> &values, const std::string &comment);
 void split(const std::string &s, char delim, std::vector<std::string> &elems);
 float rinv2pt(const float& rinv);
