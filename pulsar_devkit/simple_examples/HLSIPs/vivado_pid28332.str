@@ -1,0 +1,124 @@
+/*
+
+Vivado v2016.4 (64-bit)
+SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+Process ID: 28332
+
+Current time: 	5/17/18 11:32:20 AM CDT
+Time zone: 	Central Standard Time (America/Chicago)
+
+OS: CentOS Linux release 7.4.1708 (Core) 
+Version: 3.10.0-693.21.1.el7.x86_64
+Architecture: amd64
+Available processors (cores): 20
+
+DISPLAY: localhost:10.0
+Screen size: 1280x778
+Screen resolution (DPI): 95
+Available screens: 1
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+
+Java version: 	1.8.0_66 64-bit
+Java home: 	/data/Xilinx/Vivado/2016.4/tps/lnx64/jre
+
+User name: 	dildick
+User home directory: /home/dildick
+User working directory: /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI base root directory: /data/Xilinx/Vivado
+RDI data directory: /data/Xilinx/Vivado/2016.4/data
+RDI bin directory: /data/Xilinx/Vivado/2016.4/bin
+
+Vivado preferences path: /home/dildick/.Xilinx/Vivado/2016.4/vivado.ini
+Vivado layouts directory: /home/dildick/.Xilinx/Vivado/2016.4/layouts
+
+GUI allocated memory:	152 MB
+GUI max memory:		3,052 MB
+Engine allocated memory: 4,901 MB
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// [GUI Memory]: 28 MB (+27375kb) [00:00:20]
+// [Engine Memory]: 4,896 MB (+4982688kb) [00:00:20]
+selectButton(PAResourceEtoH.GettingStartedView_OPEN_PROJECT, "Open Project"); // k:JideButton (JPanel:JComponent, cd:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_OPEN_PROJECT
+// [GUI Memory]: 36 MB (+6483kb) [00:00:26]
+// HMemoryUtils.trashcanNow. Engine heap size: 4,908 MB. GUI used memory: 23 MB. Current time: 5/17/18 11:32:24 AM CDT
+// Elapsed time: 89 seconds
+setFileChooser("/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.xpr");
+// Opening Vivado Project: /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.xpr. Version: Vivado v2016.4 
+// bt:g (cd:JFrame):  Open Project : addNotify
+// HMemoryUtils.trashcanNow. Engine heap size: 4,939 MB. GUI used memory: 23 MB. Current time: 5/17/18 11:33:56 AM CDT
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_FAILED
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_CURRENT
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 57 MB (+20280kb) [00:02:48]
+// [Engine Memory]: 5,149 MB (+8022kb) [00:02:48]
+// Tcl Message: open_project /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.xpr 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1700] Loaded user IP repository '/data/demarley/correlator/p2l1pfp/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/tkmu_proj0/solution1/impl/ip'. INFO: [IP_Flow 19-1700] Loaded user IP repository '/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/tkmu_proj0/solution1/impl/ip'. INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2016.4/data/ip'. 
+// HMemoryUtils.trashcanNow. Engine heap size: 5,176 MB. GUI used memory: 34 MB. Current time: 5/17/18 11:35:56 AM CDT
+// Tcl Message: open_project: Time (s): cpu = 00:00:18 ; elapsed = 00:01:58 . Memory (MB): peak = 6171.215 ; gain = 224.121 ; free physical = 38544 ; free virtual = 60637 
+// Project name: gem_amc; location: /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir; part: xc7vx690tffg1927-2
+// 'i' command handler elapsed time: 215 seconds
+// Elapsed time: 127 seconds
+dismissDialog("Open Project"); // bt:g (cd:JFrame)
+// WARNING: HTimer (FileMgr Design Graph Update Timer) is taking too long to process. Increasing delay to 3000 ms.
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// a:a (cd:JFrame): Critical Messages: addNotify
+// [GUI Memory]: 60 MB (+345kb) [00:04:09]
+// Elapsed time: 10 seconds
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f:a (JPanel:JComponent, a:a)
+dismissDialog("Critical Messages"); // a:a (cd:JFrame)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 25, false); // u:K (t:D, cd:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+// bt:g (cd:JFrame):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// Tcl Message: reset_run synth_1 
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// 'cn' command handler elapsed time: 3 seconds
+dismissDialog("Resetting Runs"); // bt:g (cd:JFrame)
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_LAUNCH
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// bt:g (cd:JFrame):  Generate Bitstream : addNotify
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 10 
+// Tcl Message: [Thu May 17 11:36:17 2018] Launched synth_1... Run output will be captured here: /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.runs/synth_1/runme.log 
+// TclEventType: RUN_MODIFY
+// Tcl Message: [Thu May 17 11:36:17 2018] Launched impl_1... Run output will be captured here: /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.runs/impl_1/runme.log 
+dismissDialog("Generate Bitstream"); // bt:g (cd:JFrame)
+// TclEventType: RUN_FAILED
+// WARNING: HTimer (ExpRunMgr Pending Runs Timer) is taking too long to process. Increasing delay to 3000 ms.
+// [GUI Memory]: 64 MB (+976kb) [00:04:42]
+// Elapsed time: 40 seconds
+selectButton(PAResourceQtoS.RunGadget_SHOW_ERROR, "3 errors"); // h:k (JPanel:JComponent, cd:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_MESSAGE_WINDOW
+selectButton(PAResourceQtoS.RunGadget_SHOW_ERROR, "3 errors"); // h:k (JPanel:JComponent)
+selectButton(PAResourceQtoS.RunGadget_SHOW_ERROR, "3 errors"); // h:k (JPanel:JComponent, cd:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_MESSAGE_WINDOW
+// HMemoryUtils.trashcanNow. Engine heap size: 5,187 MB. GUI used memory: 34 MB. Current time: 5/17/18 11:37:02 AM CDT

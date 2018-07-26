@@ -22,128 +22,19 @@ if rinv<0: rinv+=16384 then multiply by INVRINV_CONVERSION
 
 #include "ap_fixed.h"
 #include "ap_int.h"
-#include <stdlib.h>
+#include "dataformats.h"
 
 #define DEBUG 0
 
-typedef ap_int<15> invpt_t;  // inverse pt [1% at 100 GeV]
-typedef ap_int<12> pt_t;     // convert from RINV
-typedef ap_int<14> eta_t;    // eta [sinh(eta) measure to 0.005]
-typedef ap_int<19> phi_t;    // phi (50 micro-rad)
-typedef ap_int<10> chisq_t;  // chi^2 (0 - 100; 0.1 steps)
-typedef ap_int<1> q_t;       // charge
-typedef ap_int<11> z0_t;     // z0  (1 mm over +/-14.9 cm)
+// hardware functions
+etaphiglobal_t prop_hw(HwTrack& in);
 
+HwTrackMuon match_hw(HwTrack&, const HwMuon&);
+HwTrackMuon match_prop_hw(HwPropTrack&, const HwMuon&);
 
-typedef ap_fixed<15,2> finvpt_t;  // inverse pt [1% at 100 GeV]
-typedef ap_fixed<12,9> fpt_t;
-typedef ap_fixed<14,4> feta_t;    // eta [sinh(eta) measure to 0.005]
-typedef ap_fixed<19,3> fphi_t;    // phi (50 micro-rad)
-typedef ap_fixed<10,7> fchisq_t;  // chi^2 (0 - 100; 0.1 steps) 
-typedef ap_fixed<11,5> fz0_t;     // z0  (1 mm over +/-14.9 cm) 
+void assign_pt_hw(HwTrack& in);
 
-
-// size of the LUTs
-#define ETA_TABLE_SIZE 8192  // 13 unsigned bits
-#define Z0_TABLE_SIZE 1024   // 10 unsigned bits
-
-// range for LUTs
-#define SINHETA_RANGE 6
-#define ETA_RANGE 3
-#define COSH_RANGE 3
-#define Z0_RANGE 15
-#define INV_SINHETA_RANGE 1/SINHETA_RANGE
-#define INV_ETA_RANGE 1/ETA_RANGE
-#define INV_COSH_RANGE 1/COSH_RANGE
-#define INV_Z0_RANGE 1/Z0_RANGE
-
-// Conversions between binary and floating point (using example file to derive)
-#define RINV_CONVERSION 1314233             // 1/(76090E-11)
-#define PT_CONVERSION 87719298E-6           // 1/(0.01*0.3*3.8); 87719298E-6
-#define ETA_CONVERSION 855                  // 1/0.0011698 = 854.84698
-#define PHI_CONVERSION 219037
-#define Z_CONVERSION 18                     // 1/0.05615 = 17.81
-#define INVRINV_CONVERSION 76090E-11
-#define INVETA_CONVERSION 11698E-7
-#define INVPHI_CONVERSION 456544E-11        // compare floating point and bit values from example file
-#define INVZ_CONVERSION 5615E-5             // 0.05615 -- shift of 1024 for negative values!
-
-
-// -- Define structs for physics objects in software
-struct TrackObj_tkmu {
-    float pt;
-    float eta;
-    float phi;
-    float z0;
-    int q;
-    int VALID;
-    int BX;
-};
-
-struct PropTrackObj_tkmu : TrackObj_tkmu {
-    float propEta;
-    float propPhi;
-};
-
-// -- Define structs for physics objects in hardware
-struct TkObj_tkmu {
-    invpt_t hwRinv;
-    invpt_t hwInvPt;
-    pt_t hwPt;
-    eta_t hwSinhEta;
-    eta_t hwEta;
-    phi_t hwPhi;
-    eta_t hwZ0;  // same precision at eta_t
-    q_t hwQ;
-    chisq_t hwX2;
-    q_t VALID;   // VALID bit
-    fpt_t BX;    // bunch crossing
-};
-
-struct PropTkObj_tkmu : TkObj_tkmu {
-    eta_t hwPropEta;
-    phi_t hwPropPhi;
-};
-
-inline void clear(TkObj_tkmu & c) {
-    c.hwRinv  = 0; 
-    c.hwInvPt = 0; 
-    c.hwEta = 0; 
-    c.hwPhi = 0; 
-    c.hwSinhEta = 0; 
-    c.hwPt  = 0;
-    c.hwZ0  = 0;
-    c.hwQ   = 0;
-    c.hwX2  = 0;
-    c.VALID = 0;
-    c.BX = 0;
-}
-inline void init(PropTkObj_tkmu & p, const TkObj_tkmu & i){
-    p.hwRinv  = i.hwRinv; 
-    p.hwInvPt = i.hwInvPt; 
-    p.hwEta = i.hwEta; 
-    p.hwPhi = i.hwPhi; 
-    p.hwSinhEta = i.hwSinhEta; 
-    p.hwPt  = i.hwPt;
-    p.hwZ0  = i.hwZ0;
-    p.hwQ   = i.hwQ;
-    p.hwX2  = i.hwX2;
-    p.VALID = i.VALID;
-    p.BX = i.BX;
-}
-inline void clearProp(PropTkObj_tkmu & c) {
-    clear(c);
-    c.hwPropEta = 0; 
-    c.hwPropPhi = 0; 
-}
-
-
-// reference and hardware functions
-void tkmu_simple_ref( const TrackObj_tkmu& in, PropTrackObj_tkmu& out );
-void tkmu_simple_hw(  TkObj_tkmu& in, PropTkObj_tkmu& out );
-
-
-
+// template functions
 template<class data_T, int N_TABLE>
 void init_deta_table(data_T table_out[N_TABLE]){
     /* deta_LUT  = track.hwZ0 * (1/550)*/
@@ -472,6 +363,131 @@ void arcsinh(data_T &data, res_T &res) {
     arcsinh<data_T, res_T, ETA_TABLE_SIZE>(data, res); 
 
     return;
+}
+
+///////////////////////////
+// -- RINVTOPT FUNCTION 
+template<class data_T, int N_TABLE>
+void init_rinvToInvPt_table(data_T table_out[N_TABLE]) {
+    /* Implement rinvToInvPt lookup */
+    for (int ii = 0; ii < N_TABLE; ii++) {
+      // Convert from table index to X-value (unsigned 4-bit, range 0 to +4)
+      float in_val = RINV_RANGE*((N_TABLE-1)-ii)/float(N_TABLE);
+      
+      // Next, compute lookup table function
+      data_T real_val = 87.7192982456 * in_val;
+      if (false) std::cout << "RinvToPt:  Lookup table Index: " <<  ii<< " In Value: " << in_val << " Result: " << real_val << std::endl;
+      table_out[ii] = real_val;
+    }
+
+    return;
+}
+
+template<class data_T, class res_T, int TABLE_SIZE/*=1024*/>
+void rinvToInvPt(data_T &data, res_T &res) {
+    // Initialize the lookup table
+    res_T rinvToInvPt_table[TABLE_SIZE];
+    init_rinvToInvPt_table<res_T, TABLE_SIZE>(rinvToInvPt_table);
+
+    #pragma HLS PIPELINE
+
+    res = 0;
+
+    // convert input to index
+    int index = TABLE_SIZE - data * TABLE_SIZE * INV_RINV_RANGE;
+
+    if (index<0) res = rinvToInvPt_table[0];
+    else if (index>TABLE_SIZE-1) res = rinvToInvPt_table[TABLE_SIZE-1];
+    else res = rinvToInvPt_table[index];
+
+    return;
+}
+
+// Gateway to calling rinvToInvPt(x)
+template<class data_T, class res_T>
+void rinvToInvPt(data_T &data, res_T &res) { 
+    /* Get the rinvToInvPt value from the LUT -- anti-symmetric function */
+    res = 0;
+    rinvToInvPt<data_T, res_T, RINV_TABLE_SIZE>(data, res); 
+
+    return;
+}
+
+///////////////////////////
+// -- INVPTTOPT FUNCTION 
+template<class res_T, int N_TABLE>
+void init_rinvToPt_table(res_T table_out[N_TABLE]) {
+  /* Implement rinvToPt lookup */
+  for (int ii = 0; ii < N_TABLE; ii++) {
+    // Convert from table index to X-value)
+    float in_val = RINV_RANGE*((N_TABLE-1)-ii)/float(N_TABLE);
+    
+    // Next, compute lookup table function
+    res_T real_val = 1./(in_val * 87.7192982456);
+        if (false) std::cout << "InvPtToPt:  Lookup table Index: " <<  ii << " In Value: " << in_val << " Result: " << real_val << std::endl;
+        table_out[ii] = real_val;
+  }
+  
+  return;
+}
+
+template<class data_T, class res_T, int TABLE_SIZE/*=1024*/>
+void rinvToPt(data_T &data, res_T &res) {
+    // Initialize the lookup table
+    res_T rinvToPt_table[TABLE_SIZE];
+    init_rinvToPt_table<res_T, TABLE_SIZE>(rinvToPt_table);
+
+    #pragma HLS PIPELINE
+
+    res = 0;
+
+    // convert input to index
+    int index = TABLE_SIZE - data * TABLE_SIZE * INV_RINV_RANGE;
+
+
+    if (index<0) res = rinvToPt_table[0];
+    else if (index>TABLE_SIZE-1) res = rinvToPt_table[TABLE_SIZE-1];
+    else res = rinvToPt_table[index];
+
+    bool debug(false);
+    if (debug) {
+      std::cout << "Index " << index << std::endl;
+      std::cout << "res " << res << std::endl;
+    }
+
+    return;
+}
+
+// Gateway to calling rinvToPt(x)
+template<class data_T, class res_T>
+void rinvToPt(data_T &data, res_T &res) { 
+    res = 0;
+    rinvToPt<data_T, res_T, PT_TABLE_SIZE>(data, res); 
+
+    return;
+}
+
+// delta R matching
+// choose eta precision of the muon as the dR precision of the match
+template<class data_T, class data_S, class data_U, class data_V>
+data_S dr2_int(data_T eta1, data_S phi1, data_U eta2, data_V phi2) {
+  // eta1, phi1: track properties
+  // eta2, phi2: muon properties
+  data_T deta = eta1 - eta2;
+  data_S dphi = normalizePhi(phi1 - phi2);
+
+  // normalize the phi values
+  data_S dR2 = deta*deta + dphi*dphi;
+  bool debug(false);
+  if (debug) {
+    std::cout << "Calculate dR2" << std::endl;
+    std::cout << "eta1 " << eta1 << std::endl;
+    std::cout << "eta2 " << eta2 << std::endl;
+    std::cout << "phi1 " << phi1 << std::endl;
+    std::cout << "phi2 " << phi2 << std::endl;
+    std::cout << "dR2 " << dR2 << std::endl << std::endl;
+  }
+  return dR2;
 }
 
 #endif

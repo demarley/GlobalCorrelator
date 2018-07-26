@@ -1,0 +1,437 @@
+#-----------------------------------------------------------
+# Vivado v2016.4 (64-bit)
+# SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+# IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+# Start of session at: Mon Jul 23 13:56:13 2018
+# Process ID: 29644
+# Current directory: /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs
+# Command line: vivado
+# Log file: /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/vivado.log
+# Journal file: /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.xpr
+CRITICAL WARNING: [Project 1-19] Could not find the file '/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/gth_amc13_1/ip/gth_amc13_1.xcix'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/ila_axi_ipbus_bridge/ip/ila_axi_ipbus_bridge.xcix'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/tkmu_proj0/solution1/impl/ip/hdl/vhdl/tkmu_simple_hw.vhd'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/tkmu_proj0/solution1/impl/ip/hdl/vhdl/invCosh.vhd'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/tkmu_proj0/solution1/impl/ip/hdl/vhdl/invCosh_1.vhd'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/tkmu_proj0/solution1/impl/ip/hdl/vhdl/deta_LUT.vhd'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/tkmu_proj0/solution1/impl/ip/hdl/vhdl/tanh.vhd'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/tkmu_proj0/solution1/impl/ip/hdl/vhdl/delta_minus_LUT.vhd'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/tkmu_proj0/solution1/impl/ip/hdl/vhdl/delta_plus_LUT.vhd'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/tkmu_proj0/solution1/impl/ip/hdl/vhdl/delta_LUT.vhd'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/tkmu_proj0/solution1/impl/ip/hdl/vhdl/arcsinh.vhd'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/tkmu_proj0/solution1/impl/ip/hdl/vhdl/invCosh_cosh_table1.vhd'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/tkmu_proj0/solution1/impl/ip/hdl/vhdl/tanh_tanh_table2.vhd'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/tkmu_proj0/solution1/impl/ip/hdl/vhdl/arcsinh_arcsinh_tbkb.vhd'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/tkmu_proj0/solution1/impl/ip/hdl/verilog/invCosh.v'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/tkmu_proj0/solution1/impl/ip/hdl/verilog/invCosh_1.v'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/tkmu_proj0/solution1/impl/ip/hdl/verilog/deta_LUT.v'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/tkmu_proj0/solution1/impl/ip/hdl/verilog/tanh.v'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/tkmu_proj0/solution1/impl/ip/hdl/verilog/delta_minus_LUT.v'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/tkmu_proj0/solution1/impl/ip/hdl/verilog/delta_plus_LUT.v'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/tkmu_proj0/solution1/impl/ip/hdl/verilog/delta_LUT.v'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/tkmu_proj0/solution1/impl/ip/hdl/verilog/arcsinh.v'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/tkmu_proj0/solution1/impl/ip/hdl/verilog/invCosh_cosh_table1.v'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/tkmu_proj0/solution1/impl/ip/hdl/verilog/tanh_tanh_table2.v'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/tkmu_proj0/solution1/impl/ip/hdl/verilog/arcsinh_arcsinh_tbkb.v'.
+Scanning sources...
+Finished scanning sources
+WARNING: [filemgmt 56-3] IP Repository Path: Could not find the directory '/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/tkmu_proj0/solution1/impl/ip'.
+WARNING: [filemgmt 56-3] IP Repository Path: Could not find the directory '/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/match_proj0'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+WARNING: [IP_Flow 19-2248] Failed to load user IP repository '/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/tkmu_proj0/solution1/impl/ip'; Can't find the specified path.
+If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
+WARNING: [IP_Flow 19-2248] Failed to load user IP repository '/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/match_proj0'; Can't find the specified path.
+If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2016.4/data/ip'.
+open_project: Time (s): cpu = 00:00:24 ; elapsed = 00:01:22 . Memory (MB): peak = 6244.828 ; gain = 294.684 ; free physical = 24563 ; free virtual = 59571
+remove_files  -fileset match_prop_hw_0 /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/match_prop_hw_0/match_prop_hw_0.xci
+INFO: [Project 1-386] Moving file '/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/match_prop_hw_0.xcix' from fileset 'match_prop_hw_0' to fileset 'sources_1'.
+INFO: [Project 1-386] Moving file '/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/match_prop_hw_0/match_prop_hw_0.xci' from fileset 'match_prop_hw_0' to fileset 'sources_1'.
+file delete -force /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/match_prop_hw_0.xcix
+file delete -force /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.ip_user_files/ip/match_prop_hw_0 /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.ip_user_files/sim_scripts/match_prop_hw_0
+remove_files  -fileset tkmu_simple_hw_0 /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/tkmu_simple_hw_0_2/tkmu_simple_hw_0.xci
+INFO: [Project 1-386] Moving file '/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/tkmu_simple_hw_0_2.xcix' from fileset 'tkmu_simple_hw_0' to fileset 'sources_1'.
+INFO: [Project 1-386] Moving file '/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/tkmu_simple_hw_0_2/tkmu_simple_hw_0.xci' from fileset 'tkmu_simple_hw_0' to fileset 'sources_1'.
+file delete -force /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/tkmu_simple_hw_0_2.xcix
+set_property  ip_repo_paths  /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/match_proj0 [current_project]
+update_ip_catalog
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+WARNING: [IP_Flow 19-2248] Failed to load user IP repository '/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/match_proj0'; Can't find the specified path.
+If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
+set_property  ip_repo_paths  {} [current_project]
+update_ip_catalog
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+set_property  ip_repo_paths  {/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/hls_calc_eta_hw /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/hls_calc_phi_hw /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/hls_calc_pt /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/hls_match /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/hls_matchprop /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/hls_prop} [current_project]
+update_ip_catalog
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/hls_calc_eta_hw'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/hls_calc_phi_hw'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/hls_calc_pt'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/hls_match'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/hls_matchprop'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/hls_prop'.
+create_ip -name calc_eta_hw -vendor cern-cms -library hls -version 1.0 -module_name calc_eta_hw_0
+INFO: [filemgmt 56-101] Creating core container '/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/calc_eta_hw_0.xcix' for IP 'calc_eta_hw_0'
+generate_target {instantiation_template} [get_files /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/calc_eta_hw_0/calc_eta_hw_0.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'calc_eta_hw_0'...
+generate_target all [get_files  /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/calc_eta_hw_0/calc_eta_hw_0.xci]
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'calc_eta_hw_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'calc_eta_hw_0'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'calc_eta_hw_0'...
+catch { config_ip_cache -export [get_ips -all calc_eta_hw_0] }
+export_ip_user_files -of_objects [get_files /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/calc_eta_hw_0/calc_eta_hw_0.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/calc_eta_hw_0/calc_eta_hw_0.xci]
+launch_runs -jobs 10 calc_eta_hw_0_synth_1
+[Mon Jul 23 14:31:19 2018] Launched calc_eta_hw_0_synth_1...
+Run output will be captured here: /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.runs/calc_eta_hw_0_synth_1/runme.log
+export_simulation -of_objects [get_files /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/calc_eta_hw_0/calc_eta_hw_0.xci] -directory /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.ip_user_files/sim_scripts -ip_user_files_dir /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.ip_user_files -ipstatic_source_dir /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.cache/compile_simlib/modelsim} {questa=/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.cache/compile_simlib/questa} {ies=/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.cache/compile_simlib/ies} {vcs=/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.cache/compile_simlib/vcs} {riviera=/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+create_ip -name calc_phi_hw -vendor cern-cms -library hls -version 1.0 -module_name calc_phi_hw_0
+INFO: [filemgmt 56-101] Creating core container '/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/calc_phi_hw_0.xcix' for IP 'calc_phi_hw_0'
+generate_target {instantiation_template} [get_files /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/calc_phi_hw_0/calc_phi_hw_0.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'calc_phi_hw_0'...
+generate_target all [get_files  /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/calc_phi_hw_0/calc_phi_hw_0.xci]
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'calc_phi_hw_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'calc_phi_hw_0'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'calc_phi_hw_0'...
+catch { config_ip_cache -export [get_ips -all calc_phi_hw_0] }
+export_ip_user_files -of_objects [get_files /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/calc_phi_hw_0/calc_phi_hw_0.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/calc_phi_hw_0/calc_phi_hw_0.xci]
+launch_runs -jobs 10 calc_phi_hw_0_synth_1
+[Mon Jul 23 14:33:07 2018] Launched calc_phi_hw_0_synth_1...
+Run output will be captured here: /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.runs/calc_phi_hw_0_synth_1/runme.log
+export_simulation -of_objects [get_files /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/calc_phi_hw_0/calc_phi_hw_0.xci] -directory /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.ip_user_files/sim_scripts -ip_user_files_dir /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.ip_user_files -ipstatic_source_dir /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.cache/compile_simlib/modelsim} {questa=/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.cache/compile_simlib/questa} {ies=/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.cache/compile_simlib/ies} {vcs=/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.cache/compile_simlib/vcs} {riviera=/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+create_ip -name calc_pt_hw -vendor cern-cms -library hls -version 1.0 -module_name calc_pt_hw_0
+INFO: [filemgmt 56-101] Creating core container '/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/calc_pt_hw_0.xcix' for IP 'calc_pt_hw_0'
+generate_target {instantiation_template} [get_files /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/calc_pt_hw_0/calc_pt_hw_0.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'calc_pt_hw_0'...
+generate_target all [get_files  /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/calc_pt_hw_0/calc_pt_hw_0.xci]
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'calc_pt_hw_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'calc_pt_hw_0'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'calc_pt_hw_0'...
+catch { config_ip_cache -export [get_ips -all calc_pt_hw_0] }
+export_ip_user_files -of_objects [get_files /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/calc_pt_hw_0/calc_pt_hw_0.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/calc_pt_hw_0/calc_pt_hw_0.xci]
+launch_runs -jobs 10 calc_pt_hw_0_synth_1
+[Mon Jul 23 14:35:17 2018] Launched calc_pt_hw_0_synth_1...
+Run output will be captured here: /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.runs/calc_pt_hw_0_synth_1/runme.log
+export_simulation -of_objects [get_files /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/calc_pt_hw_0/calc_pt_hw_0.xci] -directory /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.ip_user_files/sim_scripts -ip_user_files_dir /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.ip_user_files -ipstatic_source_dir /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.cache/compile_simlib/modelsim} {questa=/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.cache/compile_simlib/questa} {ies=/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.cache/compile_simlib/ies} {vcs=/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.cache/compile_simlib/vcs} {riviera=/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+create_ip -name match_hw -vendor cern-cms -library hls -version 1.0 -module_name match_hw_0
+INFO: [filemgmt 56-101] Creating core container '/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/match_hw_0.xcix' for IP 'match_hw_0'
+generate_target {instantiation_template} [get_files /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/match_hw_0/match_hw_0.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'match_hw_0'...
+generate_target all [get_files  /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/match_hw_0/match_hw_0.xci]
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'match_hw_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'match_hw_0'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'match_hw_0'...
+catch { config_ip_cache -export [get_ips -all match_hw_0] }
+export_ip_user_files -of_objects [get_files /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/match_hw_0/match_hw_0.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/match_hw_0/match_hw_0.xci]
+launch_runs -jobs 10 match_hw_0_synth_1
+[Mon Jul 23 14:37:00 2018] Launched match_hw_0_synth_1...
+Run output will be captured here: /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.runs/match_hw_0_synth_1/runme.log
+export_simulation -of_objects [get_files /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/match_hw_0/match_hw_0.xci] -directory /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.ip_user_files/sim_scripts -ip_user_files_dir /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.ip_user_files -ipstatic_source_dir /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.cache/compile_simlib/modelsim} {questa=/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.cache/compile_simlib/questa} {ies=/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.cache/compile_simlib/ies} {vcs=/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.cache/compile_simlib/vcs} {riviera=/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+create_ip -name match_prop_hw -vendor cern-cms -library hls -version 1.0 -module_name match_prop_hw_0
+INFO: [filemgmt 56-101] Creating core container '/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/match_prop_hw_0.xcix' for IP 'match_prop_hw_0'
+generate_target {instantiation_template} [get_files /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/match_prop_hw_0/match_prop_hw_0.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'match_prop_hw_0'...
+generate_target all [get_files  /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/match_prop_hw_0/match_prop_hw_0.xci]
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'match_prop_hw_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'match_prop_hw_0'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'match_prop_hw_0'...
+catch { config_ip_cache -export [get_ips -all match_prop_hw_0] }
+export_ip_user_files -of_objects [get_files /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/match_prop_hw_0/match_prop_hw_0.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/match_prop_hw_0/match_prop_hw_0.xci]
+launch_runs -jobs 10 match_prop_hw_0_synth_1
+[Mon Jul 23 14:38:30 2018] Launched match_prop_hw_0_synth_1...
+Run output will be captured here: /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.runs/match_prop_hw_0_synth_1/runme.log
+export_simulation -of_objects [get_files /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/match_prop_hw_0/match_prop_hw_0.xci] -directory /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.ip_user_files/sim_scripts -ip_user_files_dir /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.ip_user_files -ipstatic_source_dir /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.cache/compile_simlib/modelsim} {questa=/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.cache/compile_simlib/questa} {ies=/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.cache/compile_simlib/ies} {vcs=/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.cache/compile_simlib/vcs} {riviera=/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+create_ip -name prop_hw -vendor cern-cms -library hls -version 1.0 -module_name prop_hw_0
+INFO: [filemgmt 56-101] Creating core container '/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/prop_hw_0.xcix' for IP 'prop_hw_0'
+generate_target {instantiation_template} [get_files /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/prop_hw_0/prop_hw_0.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'prop_hw_0'...
+generate_target all [get_files  /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/prop_hw_0/prop_hw_0.xci]
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'prop_hw_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'prop_hw_0'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'prop_hw_0'...
+catch { config_ip_cache -export [get_ips -all prop_hw_0] }
+export_ip_user_files -of_objects [get_files /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/prop_hw_0/prop_hw_0.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/prop_hw_0/prop_hw_0.xci]
+launch_runs -jobs 10 prop_hw_0_synth_1
+[Mon Jul 23 14:43:13 2018] Launched prop_hw_0_synth_1...
+Run output will be captured here: /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.runs/prop_hw_0_synth_1/runme.log
+export_simulation -of_objects [get_files /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/prop_hw_0/prop_hw_0.xci] -directory /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.ip_user_files/sim_scripts -ip_user_files_dir /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.ip_user_files -ipstatic_source_dir /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.cache/compile_simlib/modelsim} {questa=/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.cache/compile_simlib/questa} {ies=/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.cache/compile_simlib/ies} {vcs=/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.cache/compile_simlib/vcs} {riviera=/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -jobs 10
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP '/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/ip/ila_axi_ipbus_bridge/ila_axi_ipbus_bridge.xci' is already up-to-date
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP '/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/ila_trk_bxs/ila_trk_bxs.xci' is already up-to-date
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP '/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/ip/spy_fifo/spy_fifo.xci' is already up-to-date
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP '/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.srcs/sources_1/ip/ila_spy/ila_spy.xci' is already up-to-date
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP '/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/ip/ila_correlator/ila_correlator.xci' is already up-to-date
+[Mon Jul 23 15:02:29 2018] Launched synth_1...
+Run output will be captured here: /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.runs/synth_1/runme.log
+[Mon Jul 23 15:02:29 2018] Launched impl_1...
+Run output will be captured here: /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/work_dir/gem_amc.runs/impl_1/runme.log
+ERROR: [Vivado 12-106] *** Exception: java.lang.ClassCastException (See /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/vivado_pid29644.debug)
+ERROR: [Vivado 12-106] *** Exception: java.lang.ClassCastException (See /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/vivado_pid29644.debug)
+ERROR: [Vivado 12-106] *** Exception: java.lang.ClassCastException (See /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/vivado_pid29644.debug)
+ERROR: [Vivado 12-106] *** Exception: java.lang.ClassCastException (See /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/vivado_pid29644.debug)
+ERROR: [Vivado 12-106] *** Exception: java.lang.ClassCastException (See /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/vivado_pid29644.debug)
+ERROR: [Vivado 12-106] *** Exception: java.lang.ClassCastException (See /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/vivado_pid29644.debug)
+ERROR: [Vivado 12-106] *** Exception: java.lang.ClassCastException (See /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/vivado_pid29644.debug)
+ERROR: [Vivado 12-106] *** Exception: java.lang.ClassCastException (See /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/vivado_pid29644.debug)
+ERROR: [Vivado 12-106] *** Exception: java.lang.ClassCastException (See /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/vivado_pid29644.debug)
+ERROR: [Vivado 12-106] *** Exception: java.lang.ClassCastException (See /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/vivado_pid29644.debug)
+ERROR: [Vivado 12-106] *** Exception: java.lang.ClassCastException (See /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/vivado_pid29644.debug)
+ERROR: [Vivado 12-106] *** Exception: java.lang.ClassCastException (See /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/vivado_pid29644.debug)
+ERROR: [Vivado 12-106] *** Exception: java.lang.ClassCastException (See /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/vivado_pid29644.debug)
+ERROR: [Vivado 12-106] *** Exception: java.lang.ClassCastException (See /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/vivado_pid29644.debug)
+ERROR: [Vivado 12-106] *** Exception: java.lang.ClassCastException (See /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/vivado_pid29644.debug)
+ERROR: [Vivado 12-106] *** Exception: java.lang.ClassCastException (See /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/vivado_pid29644.debug)
+ERROR: [Vivado 12-106] *** Exception: java.lang.ClassCastException (See /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/vivado_pid29644.debug)
+ERROR: [Vivado 12-106] *** Exception: java.lang.ClassCastException (See /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/vivado_pid29644.debug)
+ERROR: [Vivado 12-106] *** Exception: java.lang.ClassCastException (See /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/vivado_pid29644.debug)
+ERROR: [Vivado 12-106] *** Exception: java.lang.ClassCastException (See /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/vivado_pid29644.debug)
+ERROR: [Vivado 12-106] *** Exception: java.lang.ClassCastException (See /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/vivado_pid29644.debug)
+ERROR: [Vivado 12-106] *** Exception: java.lang.ClassCastException (See /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/vivado_pid29644.debug)
+ERROR: [Vivado 12-106] *** Exception: java.lang.ClassCastException (See /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/vivado_pid29644.debug)
+ERROR: [Vivado 12-106] *** Exception: java.lang.ClassCastException (See /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/vivado_pid29644.debug)
+ERROR: [Vivado 12-106] *** Exception: java.lang.ClassCastException (See /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/vivado_pid29644.debug)
+ERROR: [Vivado 12-106] *** Exception: java.lang.ClassCastException (See /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/vivado_pid29644.debug)
+ERROR: [Vivado 12-106] *** Exception: java.lang.ClassCastException (See /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/vivado_pid29644.debug)
+ERROR: [Vivado 12-106] *** Exception: java.lang.ClassCastException (See /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/vivado_pid29644.debug)
+ERROR: [Vivado 12-106] *** Exception: java.lang.ClassCastException (See /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/vivado_pid29644.debug)
+ERROR: [Vivado 12-106] *** Exception: java.lang.ClassCastException (See /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/vivado_pid29644.debug)
+ERROR: [Vivado 12-106] *** Exception: java.lang.ClassCastException (See /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/vivado_pid29644.debug)
+ERROR: [Vivado 12-106] *** Exception: java.lang.ClassCastException (See /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/vivado_pid29644.debug)
+ERROR: [Vivado 12-106] *** Exception: java.lang.ClassCastException (See /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/vivado_pid29644.debug)
+ERROR: [Vivado 12-106] *** Exception: java.lang.ClassCastException (See /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/vivado_pid29644.debug)
+ERROR: [Vivado 12-106] *** Exception: java.lang.ClassCastException (See /data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/vivado_pid29644.debug)
+open_run impl_1
+INFO: [Netlist 29-17] Analyzing 3564 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2016.4
+INFO: [Device 21-403] Loading part xc7vx690tffg1927-2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/.Xil/Vivado-29644-cmstca/dcp/gem_ctp7_early.xdc]
+INFO: [Timing 38-35] Done setting XDC timing constraints. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/bd/ip/v7_bd_clk_wiz_0_0/v7_bd_clk_wiz_0_0.xdc:57]
+INFO: [Timing 38-2] Deriving generated clocks [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/bd/ip/v7_bd_clk_wiz_0_0/v7_bd_clk_wiz_0_0.xdc:57]
+get_clocks: Time (s): cpu = 00:00:19 ; elapsed = 00:00:12 . Memory (MB): peak = 12656.582 ; gain = 840.277 ; free physical = 16302 ; free virtual = 51746
+Finished Parsing XDC File [/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/.Xil/Vivado-29644-cmstca/dcp/gem_ctp7_early.xdc]
+Parsing XDC File [/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/.Xil/Vivado-29644-cmstca/dcp/gem_ctp7.xdc]
+WARNING: [Constraints 18-619] A clock with name 'clk_200_diff_in_clk_p' already exists, overwriting the previous clock with the same name. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/top_constraints.xdc:8]
+INFO: [Timing 38-2] Deriving generated clocks [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/top_constraints.xdc:485]
+WARNING: [Vivado 12-627] No clocks matched 'clkout0'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/top_constraints.xdc:496]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/top_constraints.xdc:496]
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks clkout0]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/top_constraints.xdc:496]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-627] No clocks matched 'i_system/i_gth_wrapper/gen_gth_single[*].*/i_gthe2/?XOUTCLK'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/top_constraints.xdc:498]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/top_constraints.xdc:498]
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks {i_system/i_gth_wrapper/gen_gth_single[*].*/i_gthe2/?XOUTCLK}]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/top_constraints.xdc:498]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-627] No clocks matched 'clkout0'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/top_constraints.xdc:502]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/top_constraints.xdc:502]
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks clkout0]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/top_constraints.xdc:502]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-627] No clocks matched 'clk_125M'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+WARNING: [Vivado 12-627] No clocks matched 'clk40_in'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+WARNING: [Vivado 12-627] No clocks matched 'lhc_clk'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+WARNING: [Vivado 12-627] No clocks matched 'gt_sync_clk'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+WARNING: [Vivado 12-627] No clocks matched 'gt_async_clk'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+WARNING: [Vivado 12-627] No clocks matched 'daq_refclk'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+WARNING: [Vivado 12-627] No clocks matched 'daq_k_rx_clk'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+WARNING: [Vivado 12-627] No clocks matched 'daq_txoutclk'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+WARNING: [Vivado 12-627] No clocks matched 'gth_10g_rx0_clk'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+WARNING: [Vivado 12-627] No clocks matched 'gth_10g_rx1_clk'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+WARNING: [Vivado 12-627] No clocks matched 'gth_10g_rx2_clk'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+WARNING: [Vivado 12-627] No clocks matched 'gth_10g_rx3_clk'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+WARNING: [Vivado 12-627] No clocks matched 'gth_10g_tx0_clk'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+WARNING: [Vivado 12-627] No clocks matched 'gth_10g_tx1_clk'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+WARNING: [Vivado 12-627] No clocks matched 'gth_10g_tx2_clk'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+WARNING: [Vivado 12-627] No clocks matched 'gth_10g_tx3_clk'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks -include_generated_clocks clk_125M]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks -include_generated_clocks clk40_in]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks -include_generated_clocks lhc_clk]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks -include_generated_clocks gt_sync_clk]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks -include_generated_clocks gt_async_clk]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks -include_generated_clocks daq_refclk]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks -include_generated_clocks daq_k_rx_clk]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks -include_generated_clocks daq_txoutclk]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks -include_generated_clocks gth_10g_rx0_clk]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks -include_generated_clocks gth_10g_rx1_clk]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks -include_generated_clocks gth_10g_rx2_clk]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks -include_generated_clocks gth_10g_rx3_clk]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks -include_generated_clocks gth_10g_tx0_clk]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks -include_generated_clocks gth_10g_tx1_clk]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks -include_generated_clocks gth_10g_tx2_clk]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks -include_generated_clocks gth_10g_tx3_clk]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+Finished Parsing XDC File [/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/.Xil/Vivado-29644-cmstca/dcp/gem_ctp7.xdc]
+Parsing XDC File [/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/.Xil/Vivado-29644-cmstca/dcp/gem_ctp7_late.xdc]
+Finished Parsing XDC File [/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/.Xil/Vivado-29644-cmstca/dcp/gem_ctp7_late.xdc]
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 12812.195 ; gain = 77.543 ; free physical = 16016 ; free virtual = 51273
+Restored from archive | CPU: 4.100000 secs | Memory: 117.752197 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 12812.195 ; gain = 77.543 ; free physical = 16016 ; free virtual = 51273
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 850 instances were transformed.
+  CFGLUT5 => CFGLUT5 (SRLC32E, SRL16E): 692 instances
+  RAM32M => RAM32M (RAMS32, RAMS32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32): 15 instances
+  RAM32X1D => RAM32X1D (RAMD32, RAMD32): 3 instances
+  RAM64M => RAM64M (RAMD64E, RAMD64E, RAMD64E, RAMD64E): 140 instances
+
+open_run: Time (s): cpu = 00:01:36 ; elapsed = 00:02:13 . Memory (MB): peak = 13332.512 ; gain = 2182.164 ; free physical = 17794 ; free virtual = 52893
+open_report: Time (s): cpu = 00:00:11 ; elapsed = 00:00:07 . Memory (MB): peak = 13332.512 ; gain = 0.000 ; free physical = 17772 ; free virtual = 52871
+CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requirements. Please see the timing summary report for details on the timing violations.
+create_ip_run [get_files -of_objects [get_fileset sources_1] /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/ip/ila_axi_ipbus_bridge/ila_axi_ipbus_bridge.xci]
+INFO: [Vivado 12-3453] The given sub-design is up-to-date, no action was taken.  If a run is still desired, use the '-force' option for the file:'/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/ip/ila_axi_ipbus_bridge/ila_axi_ipbus_bridge.xci'
+create_ip_run [get_files -of_objects [get_fileset sources_1] /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/ip/spy_fifo/spy_fifo.xci]
+INFO: [Vivado 12-3453] The given sub-design is up-to-date, no action was taken.  If a run is still desired, use the '-force' option for the file:'/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/ip/spy_fifo/spy_fifo.xci'
+refresh_design
+INFO: [Netlist 29-17] Analyzing 4093 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2016.4
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/.Xil/Vivado-29644-cmstca/dcp/gem_ctp7_early.xdc]
+INFO: [Timing 38-35] Done setting XDC timing constraints. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/bd/ip/v7_bd_clk_wiz_0_0/v7_bd_clk_wiz_0_0.xdc:57]
+INFO: [Timing 38-2] Deriving generated clocks [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/bd/ip/v7_bd_clk_wiz_0_0/v7_bd_clk_wiz_0_0.xdc:57]
+Finished Parsing XDC File [/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/.Xil/Vivado-29644-cmstca/dcp/gem_ctp7_early.xdc]
+Parsing XDC File [/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/.Xil/Vivado-29644-cmstca/dcp/gem_ctp7.xdc]
+WARNING: [Constraints 18-619] A clock with name 'clk_200_diff_in_clk_p' already exists, overwriting the previous clock with the same name. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/top_constraints.xdc:8]
+INFO: [Timing 38-2] Deriving generated clocks [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/top_constraints.xdc:485]
+WARNING: [Vivado 12-627] No clocks matched 'clkout0'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/top_constraints.xdc:496]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/top_constraints.xdc:496]
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks clkout0]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/top_constraints.xdc:496]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-627] No clocks matched 'i_system/i_gth_wrapper/gen_gth_single[*].*/i_gthe2/?XOUTCLK'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/top_constraints.xdc:498]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/top_constraints.xdc:498]
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks {i_system/i_gth_wrapper/gen_gth_single[*].*/i_gthe2/?XOUTCLK}]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/top_constraints.xdc:498]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-627] No clocks matched 'clkout0'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/top_constraints.xdc:502]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/top_constraints.xdc:502]
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks clkout0]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/top_constraints.xdc:502]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-627] No clocks matched 'clk_125M'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+WARNING: [Vivado 12-627] No clocks matched 'clk40_in'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+WARNING: [Vivado 12-627] No clocks matched 'lhc_clk'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+WARNING: [Vivado 12-627] No clocks matched 'gt_sync_clk'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+WARNING: [Vivado 12-627] No clocks matched 'gt_async_clk'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+WARNING: [Vivado 12-627] No clocks matched 'daq_refclk'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+WARNING: [Vivado 12-627] No clocks matched 'daq_k_rx_clk'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+WARNING: [Vivado 12-627] No clocks matched 'daq_txoutclk'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+WARNING: [Vivado 12-627] No clocks matched 'gth_10g_rx0_clk'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+WARNING: [Vivado 12-627] No clocks matched 'gth_10g_rx1_clk'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+WARNING: [Vivado 12-627] No clocks matched 'gth_10g_rx2_clk'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+WARNING: [Vivado 12-627] No clocks matched 'gth_10g_rx3_clk'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+WARNING: [Vivado 12-627] No clocks matched 'gth_10g_tx0_clk'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+WARNING: [Vivado 12-627] No clocks matched 'gth_10g_tx1_clk'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+WARNING: [Vivado 12-627] No clocks matched 'gth_10g_tx2_clk'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+WARNING: [Vivado 12-627] No clocks matched 'gth_10g_tx3_clk'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+INFO: [Vivado 12-626] No clocks found. Please use 'create_clock' or 'create_generated_clock' command to create clocks. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks -include_generated_clocks clk_125M]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks -include_generated_clocks clk40_in]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks -include_generated_clocks lhc_clk]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks -include_generated_clocks gt_sync_clk]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks -include_generated_clocks gt_async_clk]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks -include_generated_clocks daq_refclk]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks -include_generated_clocks daq_k_rx_clk]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks -include_generated_clocks daq_txoutclk]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks -include_generated_clocks gth_10g_rx0_clk]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks -include_generated_clocks gth_10g_rx1_clk]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks -include_generated_clocks gth_10g_rx2_clk]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks -include_generated_clocks gth_10g_rx3_clk]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks -include_generated_clocks gth_10g_tx0_clk]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks -include_generated_clocks gth_10g_tx1_clk]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks -include_generated_clocks gth_10g_tx2_clk]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+CRITICAL WARNING: [Vivado 12-4739] set_clock_groups:No valid object(s) found for '-group [get_clocks -include_generated_clocks gth_10g_tx3_clk]'. [/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/ctp7/constraints/clocking.xdc:39]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+Finished Parsing XDC File [/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/.Xil/Vivado-29644-cmstca/dcp/gem_ctp7.xdc]
+Parsing XDC File [/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/.Xil/Vivado-29644-cmstca/dcp/gem_ctp7_late.xdc]
+Finished Parsing XDC File [/data/dildick/GlobalCorrelator/pulsar_devkit/simple_examples/HLSIPs/.Xil/Vivado-29644-cmstca/dcp/gem_ctp7_late.xdc]
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 13421.574 ; gain = 0.000 ; free physical = 14937 ; free virtual = 50194
+Restored from archive | CPU: 4.270000 secs | Memory: 131.850983 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 13421.574 ; gain = 0.000 ; free physical = 14936 ; free virtual = 50193
+refresh_design: Time (s): cpu = 00:01:13 ; elapsed = 00:02:30 . Memory (MB): peak = 13601.578 ; gain = 269.066 ; free physical = 14800 ; free virtual = 49844
+open_report: Time (s): cpu = 00:00:08 ; elapsed = 00:00:07 . Memory (MB): peak = 13601.578 ; gain = 0.000 ; free physical = 17419 ; free virtual = 52492
+CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requirements. Please see the timing summary report for details on the timing violations.
+add_files -norecurse {/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/common/hdl/decoding/muondecoder.vhd /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/common/hdl/decoding/trackdecoder.vhd /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/common/hdl/decoding/muondecoder_legacy.vhd}
+WARNING: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+remove_files  {/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/common/hdl/decoding/muonlink.vhd /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/common/hdl/decoding/tracklink.vhd}
+remove_files  /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/common/hdl/decoding/muondecoder_legacy.vhd
+add_files -norecurse {/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/common/hdl/decoding/muondecoder.vhd /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/common/hdl/decoding/trackdecoder.vhd}
+WARNING: [filemgmt 56-12] File '/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/common/hdl/decoding/muondecoder.vhd' cannot be added to the project because it already exists in the project, skipping this file
+WARNING: [filemgmt 56-12] File '/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/common/hdl/decoding/trackdecoder.vhd' cannot be added to the project because it already exists in the project, skipping this file
+add_files -norecurse {/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/common/hdl/decoding/muondecoder.vhd /home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/common/hdl/decoding/trackdecoder.vhd}
+WARNING: [filemgmt 56-12] File '/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/common/hdl/decoding/muondecoder.vhd' cannot be added to the project because it already exists in the project, skipping this file
+WARNING: [filemgmt 56-12] File '/home/dildick/TrackMuonCorrelator/TrackMuonCorrelator/correlator/common/hdl/decoding/trackdecoder.vhd' cannot be added to the project because it already exists in the project, skipping this file
+exit
+INFO: [Common 17-206] Exiting Vivado at Mon Jul 23 18:58:57 2018...
