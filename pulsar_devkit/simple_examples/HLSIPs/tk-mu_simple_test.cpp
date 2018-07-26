@@ -50,15 +50,6 @@ int main() {
 
 
     // Conversions between binary and floating point (using example file to derive)
-    finvpt_t RINV_CONVERSION(792055);
-    finvpt_t INVRINV_CONVERSION(1262538462E-15);
-    fphi_t PT_CONVERSION(87719298E-6);
-    feta_t ETA_CONVERSION(512);
-    feta_t INVETA_CONVERSION(19531261E-10);
-    fphi_t PHI_CONVERSION(211233);
-    fphi_t INVPHI_CONVERSION(4734119709E-15);
-    fz0_t Z_CONVERSION(17);
-    fz0_t INVZ_CONVERSION(5859375E-8);
 
 
 

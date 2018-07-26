@@ -57,7 +57,7 @@ typedef ap_fixed<11,5> fz0_t;     // z0  (1 mm over +/-14.9 cm)
 #define INV_COSH_RANGE 1/COSH_RANGE
 #define INV_Z0_RANGE 1/Z0_RANGE
 
-/*
+
 // Conversions between binary and floating point (using example file to derive)
 #define RINV_CONVERSION 792055              //1314229             // 1/0.000000760902077
 #define PT_CONVERSION 87719298E-6           // 1/(0.01*0.3*3.8); 87719298E-6
@@ -68,7 +68,7 @@ typedef ap_fixed<11,5> fz0_t;     // z0  (1 mm over +/-14.9 cm)
 #define INVETA_CONVERSION 19531261E-10      //original: 11698E-7
 #define INVPHI_CONVERSION 4734119709E-15    //0.000004734119709  // original: 456544E-11
 #define INVZ_CONVERSION 5859375E-8          //0.05859375 //original: 56152375E-9         //0.056152375 -- shift of 1024 for negative values!
-*/
+
 
 // -- Define structs for physics objects in software
 struct TrackObj_tkmu {
@@ -154,7 +154,8 @@ template<class data_T, int N_TABLE>
 void init_deta_table(data_T table_out[N_TABLE]){
     /* deta_LUT  = track.hwZ0 * (1/550)*/
     for (int ii = 0; ii < N_TABLE; ii++) {
-        float in_val = (Z0_RANGE)*((N_TABLE-1)-ii)/float(N_TABLE);
+//        float in_val = (Z0_RANGE)*((N_TABLE-1)-ii)/float(N_TABLE);
+        float in_val = (15)*((N_TABLE-1)-ii)/float(N_TABLE);
 
         // Next, compute lookup table 
         data_T real_val = 0.002*in_val;  // convert to proper type
@@ -175,14 +176,8 @@ void deta_LUT(data_T &data, res_T &res) {
     res = 0;
 
     // convert input to index
-    data_T tmp(Z0_RANGE);
-    int index = TABLE_SIZE - data * TABLE_SIZE/tmp;
-    std::cout << " INDEX deta_LUT = " << index << std::endl;
-    std::cout << "       inv z0   = " << 1/tmp << std::endl;
-    std::cout << "       z0       = " << Z0_RANGE << std::endl;
-    std::cout << "       data     = " << data << std::endl;
-    std::cout << "       TABLE    = " << TABLE_SIZE << std::endl;
-    std::cout << "       index    = " << index << std::endl;
+//    data_T tmp(Z0_RANGE);
+    int index = TABLE_SIZE - data * TABLE_SIZE/15;   //tmp;
 
     if (index<0) res = deta_table[0];
     else if (index>TABLE_SIZE-1) res = deta_table[TABLE_SIZE-1];
@@ -207,7 +202,8 @@ template<class data_T, int N_TABLE>
 void init_delta_minus_LUT(data_T table_out[N_TABLE]){
     /* delta_minus_LUT  z0 / (z0-850) */
     for (int ii = 0; ii < N_TABLE; ii++) {
-        float in_val = (Z0_RANGE)*((N_TABLE-1)-ii)/float(N_TABLE);
+//        float in_val = (Z0_RANGE)*((N_TABLE-1)-ii)/float(N_TABLE);
+        float in_val = (15)*((N_TABLE-1)-ii)/float(N_TABLE);
 
         // Next, compute lookup table 
         float numerator   = in_val;    // just repeat the calculation from delta_LUT
@@ -229,8 +225,8 @@ void delta_minus_LUT(data_T &data, res_T &res) {
     res = 0;
 
     // convert input to index
-    data_T tmp(Z0_RANGE);
-    int index = TABLE_SIZE - data * TABLE_SIZE / tmp;
+//    data_T tmp(Z0_RANGE);
+    int index = TABLE_SIZE - data * TABLE_SIZE/15;   // tmp;
 
     if (index<0) res = delta_minus_table[0];
     else if (index>TABLE_SIZE-1) res = delta_minus_table[TABLE_SIZE-1];
@@ -255,7 +251,8 @@ template<class data_T, int N_TABLE>
 void init_delta_plus_LUT(data_T table_out[N_TABLE]){
     /* delta_plus_LUT  z0 / (z0+850) */
     for (int ii = 0; ii < N_TABLE; ii++) {
-        float in_val = (Z0_RANGE)*((N_TABLE-1)-ii)/float(N_TABLE);
+//        float in_val = (Z0_RANGE)*((N_TABLE-1)-ii)/float(N_TABLE);
+        float in_val = (15)*((N_TABLE-1)-ii)/float(N_TABLE);
 
         // Next, compute lookup table 
         float numerator   = in_val;    // just repeat the calculation from delta_LUT
@@ -277,8 +274,8 @@ void delta_plus_LUT(data_T &data, res_T &res) {
     res = 0;
 
     // convert input to index
-    data_T tmp(Z0_RANGE);
-    int index = TABLE_SIZE - data * TABLE_SIZE/tmp;
+//    data_T tmp(Z0_RANGE);
+    int index = TABLE_SIZE - data * TABLE_SIZE/15;   //tmp;
 
     if (index<0) res = delta_plus_table[0];
     else if (index>TABLE_SIZE-1) res = delta_plus_table[TABLE_SIZE-1];
@@ -302,7 +299,8 @@ template<class data_T, int N_TABLE>
 void init_delta_LUT(data_T table_out[N_TABLE]){
     /* delta_LUT  = track.hwZ0 / 850 */
     for (int ii = 0; ii < N_TABLE; ii++) {
-        float in_val = (Z0_RANGE)*((N_TABLE-1)-ii)/float(N_TABLE);
+//        float in_val = (Z0_RANGE)*((N_TABLE-1)-ii)/float(N_TABLE);
+        float in_val = (15)*((N_TABLE-1)-ii)/float(N_TABLE);
 
         // Next, compute lookup table 
         data_T real_val = in_val/850.;  // convert to proper type
@@ -324,8 +322,8 @@ void delta_LUT(data_T &data, res_T &res) {
     res = 0;
 
     // convert input to index
-    data_T tmp(Z0_RANGE);
-    int index = TABLE_SIZE - data * TABLE_SIZE/tmp;
+//    data_T tmp(Z0_RANGE);
+    int index = TABLE_SIZE - data * TABLE_SIZE/15;   //tmp;
 
     if (index<0) res = delta_table[0];
     else if (index>TABLE_SIZE-1) res = delta_table[TABLE_SIZE-1];
@@ -351,7 +349,8 @@ void init_tanh_table(data_T table_out[N_TABLE]) {
     /* Implement tanh lookup */
     for (int ii = 0; ii < N_TABLE; ii++) {
         // Convert from table index to X-value (unsigned 4-bit, range 0 to +4)
-        float in_val = (ETA_RANGE)*((N_TABLE-1)-ii)/float(N_TABLE);
+//        float in_val = (ETA_RANGE)*((N_TABLE-1)-ii)/float(N_TABLE);
+        float in_val = (3)*((N_TABLE-1)-ii)/float(N_TABLE);
 
         // Next, compute lookup table function
         data_T real_val = tanh(in_val);
@@ -371,8 +370,8 @@ void tanh(data_T &data, res_T &res) {
     #pragma HLS PIPELINE
 
     // convert input to index
-    data_T tmp(ETA_RANGE);
-    int index = TABLE_SIZE - data * TABLE_SIZE/tmp;
+    //data_T tmp(ETA_RANGE);
+    int index = TABLE_SIZE - data * TABLE_SIZE/3;   //tmp;
 
     if (index<0) res = tanh_table[0];
     else if (index>TABLE_SIZE-1) res = tanh_table[TABLE_SIZE-1];
@@ -399,7 +398,8 @@ void init_cosh_table(data_T table_out[N_TABLE]) {
     /* Implement cosh lookup */
     for (int ii = 0; ii < N_TABLE; ii++) {
         // Convert from table index to X-value
-        float in_val = (COSH_RANGE)*((N_TABLE-1)-ii)/float(N_TABLE);
+//        float in_val = (COSH_RANGE)*((N_TABLE-1)-ii)/float(N_TABLE);
+        float in_val = (3)*((N_TABLE-1)-ii)/float(N_TABLE);
 
         // Next, compute lookup table function
         data_T real_val = 1./cosh(in_val);
@@ -421,8 +421,8 @@ void invCosh(data_T &data, res_T &res) {
     res = 0;
 
     // convert input to index
-    data_T tmp(COSH_RANGE);
-    int index = TABLE_SIZE - data * TABLE_SIZE/tmp;
+//    data_T tmp(COSH_RANGE);
+    int index = TABLE_SIZE - data * TABLE_SIZE/3;   //tmp;
 
     if (index<0) res = cosh_table[0];
     else if (index>TABLE_SIZE-1) res = cosh_table[TABLE_SIZE-1];
@@ -451,7 +451,8 @@ void init_arcsinh_table(data_T table_out[N_TABLE]) {
     /* Implement arcsinh lookup */
     for (int ii = 0; ii < N_TABLE; ii++) {
         // Convert from table index to X-value (unsigned 4-bit, range 0 to +4)
-        float in_val = (SINHETA_RANGE)*((N_TABLE-1)-ii)/float(N_TABLE);
+//        float in_val = (SINHETA_RANGE)*((N_TABLE-1)-ii)/float(N_TABLE);
+        float in_val = 6*((N_TABLE-1)-ii)/float(N_TABLE);
 
         // Next, compute lookup table function
         data_T real_val = log(in_val + sqrt(1+pow(in_val,2)));
@@ -473,8 +474,8 @@ void arcsinh(data_T &data, res_T &res) {
     res = 0;
 
     // convert input to index
-    data_T tmp(SINHETA_RANGE);
-    int index = TABLE_SIZE - data * TABLE_SIZE/tmp;
+    // data_T tmp(SINHETA_RANGE);
+    int index = TABLE_SIZE - data * TABLE_SIZE/6;  // TABLE_SIZE/tmp;
 
     if (index<0) res = arcsinh_table[0];
     else if (index>TABLE_SIZE-1) res = arcsinh_table[TABLE_SIZE-1];

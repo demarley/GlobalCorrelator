@@ -34,16 +34,6 @@ PropTkObj_tkmu tkmu_simple_hw( TkObj_tkmu& in ){
     PropTkObj_tkmu out;               // propagated track
 
     // constants
-    // Conversions between binary and floating point (using example file to derive)
-    finvpt_t INVRINV_CONVERSION(76090E-11);
-    feta_t ETA_CONVERSION(512);
-    feta_t INVETA_CONVERSION(0.001953125);
-    fphi_t PHI_CONVERSION(219037);
-    fphi_t INVPHI_CONVERSION(0.0000045654);
-    fz0_t Z_CONVERSION(18);
-    fz0_t INVZ_CONVERSION(0.0556);
-
-
     feta_t m_boundary(1.1);           // barrel/endcap boundary
     feta_t m_unity(1.0);
     fphi_t M_PI_144(0.0218);          // used in phi propagation
@@ -68,19 +58,17 @@ PropTkObj_tkmu tkmu_simple_hw( TkObj_tkmu& in ){
 
     // sinhEta -> eta (8192 = 2^13; number of unsigned bits)
     if (DEBUG) std::cout << " FIRMWARE : SinhEta calculation " << in.hwSinhEta << std::endl;
-    feta_t sinhEta;
     feta_t absSinhEta;
-    if (in.hwSinhEta<0){
-        absSinhEta = (in.hwSinhEta+8192)*INVETA_CONVERSION;     // use ap_fixed<>
-    }
-    else{
-        absSinhEta = in.hwSinhEta*INVETA_CONVERSION;
-    }
+    if (in.hwSinhEta<0)
+        absSinhEta = (in.hwSinhEta+8192)*0.001953125;  // INVETA_CONVERSION
+    else
+        absSinhEta = in.hwSinhEta*0.001953125;         //INVETA_CONVERSION
+
     if (DEBUG) std::cout << " -- |sinheta| = " << absSinhEta << std::endl;
     arcsinh(absSinhEta, inhwEta);
     feta_t abshwEta = inhwEta;
     if (in.hwSinhEta<0) inhwEta*=-1;
-    in.hwEta = inhwEta*ETA_CONVERSION;             // set input eta ap_int
+    in.hwEta = inhwEta*512;             // set input eta ap_int (ETA_CONVERSION=512)
 
     if (DEBUG) std::cout << " -- eta     = " << inhwEta << std::endl;
 
@@ -89,12 +77,12 @@ PropTkObj_tkmu tkmu_simple_hw( TkObj_tkmu& in ){
     fz0_t inhwZ0;
     fz0_t absInhwZ0;
     if (in.hwZ0<0) {
-        inhwZ0    = -1*(in.hwZ0+1024)*INVZ_CONVERSION;
-        absInhwZ0 = (in.hwZ0+1024)*INVZ_CONVERSION;
+        inhwZ0    = -1*(in.hwZ0+1024)*0.0556;  //INVZ_CONVERSION;
+        absInhwZ0 = (in.hwZ0+1024)*0.0556;     //INVZ_CONVERSION;
     }
     else{
-        inhwZ0    = in.hwZ0*INVZ_CONVERSION;
-        absInhwZ0 = in.hwZ0*INVZ_CONVERSION;
+        inhwZ0    = in.hwZ0*0.0556;   //INVZ_CONVERSION;
+        absInhwZ0 = in.hwZ0*0.0556;   //INVZ_CONVERSION;
     }
 
     if (DEBUG) std::cout << " -- inz0 = " << in.hwZ0 << std::endl;
@@ -103,8 +91,8 @@ PropTkObj_tkmu tkmu_simple_hw( TkObj_tkmu& in ){
 
     // Phi0 (262144 = 2^18; number of unsigned bits)
     fphi_t inhwPhi;
-    if (in.hwPhi<0) inhwPhi = -1*(in.hwPhi+262144)*INVPHI_CONVERSION;
-    else inhwPhi = in.hwPhi*INVPHI_CONVERSION;
+    if (in.hwPhi<0) inhwPhi = -1*(in.hwPhi+262144)*0.0000045654; //INVPHI_CONVERSION;
+    else inhwPhi = in.hwPhi*0.0000045654;                        //INVPHI_CONVERSION;
     // sector-dependent conversion
     inhwPhi = inhwPhi - m_phi_add_conv + (in.hwSector-1)*m_phi_mult_conv;
 
@@ -201,8 +189,7 @@ PropTkObj_tkmu tkmu_simple_hw( TkObj_tkmu& in ){
 
     // ** calculate the propagated eta ** //
     if (DEBUG) std::cout << " FIRMWARE : -- ETA calculation " << inhwEta + deta << std::endl;
-    eta_t etaconv(ETA_CONVERSION);
-    out.hwPropEta = (inhwEta + deta)*etaconv;
+    out.hwPropEta = (inhwEta + deta)*512;    // ETA_CONVERSION
 
 
     // ** calculate the propagated phi ** //
@@ -219,7 +206,7 @@ PropTkObj_tkmu tkmu_simple_hw( TkObj_tkmu& in ){
     fphi_t tmp_val4   = tmp_A * tmp_B * invCoshEta_Phi;
     fphi_t outPropPhi = inhwPhi - tmp_val4 - M_PI_144;
 
-    out.hwPropPhi = outPropPhi*PHI_CONVERSION;
+    out.hwPropPhi = outPropPhi*219037;   //PHI_CONNVERSION;
 
     std::cout << " OUTPROPPHI " << outPropPhi << std::endl;
 
