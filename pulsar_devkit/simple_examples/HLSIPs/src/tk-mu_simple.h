@@ -33,7 +33,7 @@ typedef ap_int<19> phi_t;    // phi (50 micro-rad)
 typedef ap_int<10> chisq_t;  // chi^2 (0 - 100; 0.1 steps)
 typedef ap_int<1> q_t;       // charge
 typedef ap_int<11> z0_t;     // z0  (1 mm over +/-14.9 cm)
-
+typedef ap_int<5> sector_t;
 
 typedef ap_fixed<15,2> finvpt_t;  // inverse pt [1% at 100 GeV]
 typedef ap_fixed<12,9> fpt_t;
@@ -57,17 +57,18 @@ typedef ap_fixed<11,5> fz0_t;     // z0  (1 mm over +/-14.9 cm)
 #define INV_COSH_RANGE 1/COSH_RANGE
 #define INV_Z0_RANGE 1/Z0_RANGE
 
+/*
 // Conversions between binary and floating point (using example file to derive)
-#define RINV_CONVERSION 1314233             // 1/(76090E-11)
+#define RINV_CONVERSION 792055              //1314229             // 1/0.000000760902077
 #define PT_CONVERSION 87719298E-6           // 1/(0.01*0.3*3.8); 87719298E-6
-#define ETA_CONVERSION 855                  // 1/0.0011698 = 854.84698
-#define PHI_CONVERSION 219037
-#define Z_CONVERSION 18                     // 1/0.05615 = 17.81
-#define INVRINV_CONVERSION 76090E-11
-#define INVETA_CONVERSION 11698E-7
-#define INVPHI_CONVERSION 456544E-11        // compare floating point and bit values from example file
-#define INVZ_CONVERSION 5615E-5             // 0.05615 -- shift of 1024 for negative values!
-
+#define ETA_CONVERSION 512                  //855   // 1/0.0011698 = 854.84698
+#define PHI_CONVERSION 211233               //original: 219037
+#define Z_CONVERSION 17                     //original: 18 // 1/0.05615 = 17.81 -> 18
+#define INVRINV_CONVERSION 1262538462E-15   //0.000001262538462  //original: 760902077E-15    // 0.000000760902077
+#define INVETA_CONVERSION 19531261E-10      //original: 11698E-7
+#define INVPHI_CONVERSION 4734119709E-15    //0.000004734119709  // original: 456544E-11
+#define INVZ_CONVERSION 5859375E-8          //0.05859375 //original: 56152375E-9         //0.056152375 -- shift of 1024 for negative values!
+*/
 
 // -- Define structs for physics objects in software
 struct TrackObj_tkmu {
@@ -98,6 +99,7 @@ struct TkObj_tkmu {
     chisq_t hwX2;
     q_t VALID;   // VALID bit
     fpt_t BX;    // bunch crossing
+    sector_t hwSector;
 };
 
 struct PropTkObj_tkmu : TkObj_tkmu {
@@ -139,10 +141,14 @@ inline void clearProp(PropTkObj_tkmu & c) {
 
 
 // reference and hardware functions
-void tkmu_simple_ref( const TrackObj_tkmu& in, PropTrackObj_tkmu& out );
-void tkmu_simple_hw(  TkObj_tkmu& in, PropTkObj_tkmu& out );
+void tkmu_simple_ref( const TrackObj_tkmu& in, PropTrackObj_tkmu& out );   // software implementation
+//void tkmu_simple_hw(  TkObj_tkmu& in, PropTkObj_tkmu& out );
+PropTkObj_tkmu tkmu_simple_hw(  TkObj_tkmu& in );
 
 
+//////////////
+//// LUTS ////
+//////////////
 
 template<class data_T, int N_TABLE>
 void init_deta_table(data_T table_out[N_TABLE]){
@@ -151,7 +157,7 @@ void init_deta_table(data_T table_out[N_TABLE]){
         float in_val = (Z0_RANGE)*((N_TABLE-1)-ii)/float(N_TABLE);
 
         // Next, compute lookup table 
-        data_T real_val = in_val/550.;  // convert to proper type
+        data_T real_val = 0.002*in_val;  // convert to proper type
         if (DEBUG) std::cout << "deta_LUT:  Lookup table Index: " <<  ii<< " In Value: " << in_val << " Result: " << real_val << std::endl;
         table_out[ii] = real_val;
     }
@@ -169,7 +175,14 @@ void deta_LUT(data_T &data, res_T &res) {
     res = 0;
 
     // convert input to index
-    int index = TABLE_SIZE - data * TABLE_SIZE * INV_Z0_RANGE;
+    data_T tmp(Z0_RANGE);
+    int index = TABLE_SIZE - data * TABLE_SIZE/tmp;
+    std::cout << " INDEX deta_LUT = " << index << std::endl;
+    std::cout << "       inv z0   = " << 1/tmp << std::endl;
+    std::cout << "       z0       = " << Z0_RANGE << std::endl;
+    std::cout << "       data     = " << data << std::endl;
+    std::cout << "       TABLE    = " << TABLE_SIZE << std::endl;
+    std::cout << "       index    = " << index << std::endl;
 
     if (index<0) res = deta_table[0];
     else if (index>TABLE_SIZE-1) res = deta_table[TABLE_SIZE-1];
@@ -216,7 +229,8 @@ void delta_minus_LUT(data_T &data, res_T &res) {
     res = 0;
 
     // convert input to index
-    int index = TABLE_SIZE - data * TABLE_SIZE * INV_Z0_RANGE;
+    data_T tmp(Z0_RANGE);
+    int index = TABLE_SIZE - data * TABLE_SIZE / tmp;
 
     if (index<0) res = delta_minus_table[0];
     else if (index>TABLE_SIZE-1) res = delta_minus_table[TABLE_SIZE-1];
@@ -263,7 +277,8 @@ void delta_plus_LUT(data_T &data, res_T &res) {
     res = 0;
 
     // convert input to index
-    int index = TABLE_SIZE - data * TABLE_SIZE * INV_Z0_RANGE;
+    data_T tmp(Z0_RANGE);
+    int index = TABLE_SIZE - data * TABLE_SIZE/tmp;
 
     if (index<0) res = delta_plus_table[0];
     else if (index>TABLE_SIZE-1) res = delta_plus_table[TABLE_SIZE-1];
@@ -309,7 +324,8 @@ void delta_LUT(data_T &data, res_T &res) {
     res = 0;
 
     // convert input to index
-    int index = TABLE_SIZE - data * TABLE_SIZE * INV_Z0_RANGE;
+    data_T tmp(Z0_RANGE);
+    int index = TABLE_SIZE - data * TABLE_SIZE/tmp;
 
     if (index<0) res = delta_table[0];
     else if (index>TABLE_SIZE-1) res = delta_table[TABLE_SIZE-1];
@@ -355,7 +371,8 @@ void tanh(data_T &data, res_T &res) {
     #pragma HLS PIPELINE
 
     // convert input to index
-    int index = TABLE_SIZE - data * TABLE_SIZE * INV_ETA_RANGE;
+    data_T tmp(ETA_RANGE);
+    int index = TABLE_SIZE - data * TABLE_SIZE/tmp;
 
     if (index<0) res = tanh_table[0];
     else if (index>TABLE_SIZE-1) res = tanh_table[TABLE_SIZE-1];
@@ -404,7 +421,8 @@ void invCosh(data_T &data, res_T &res) {
     res = 0;
 
     // convert input to index
-    int index = TABLE_SIZE - data * TABLE_SIZE * INV_COSH_RANGE;
+    data_T tmp(COSH_RANGE);
+    int index = TABLE_SIZE - data * TABLE_SIZE/tmp;
 
     if (index<0) res = cosh_table[0];
     else if (index>TABLE_SIZE-1) res = cosh_table[TABLE_SIZE-1];
@@ -455,7 +473,8 @@ void arcsinh(data_T &data, res_T &res) {
     res = 0;
 
     // convert input to index
-    int index = TABLE_SIZE - data * TABLE_SIZE * INV_SINHETA_RANGE;
+    data_T tmp(SINHETA_RANGE);
+    int index = TABLE_SIZE - data * TABLE_SIZE/tmp;
 
     if (index<0) res = arcsinh_table[0];
     else if (index>TABLE_SIZE-1) res = arcsinh_table[TABLE_SIZE-1];

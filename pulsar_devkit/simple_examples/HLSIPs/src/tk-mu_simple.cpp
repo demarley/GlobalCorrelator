@@ -28,13 +28,30 @@ Negative values in binary are generated assuming "One's complement"
 
 
 
-void tkmu_simple_hw(  TkObj_tkmu& in, PropTkObj_tkmu& out ){
+//void tkmu_simple_hw(  TkObj_tkmu& in, PropTkObj_tkmu& out ){
+PropTkObj_tkmu tkmu_simple_hw( TkObj_tkmu& in ){
     /* Hardware implementation of the track propagation */
-    feta_t boundary(1.1);           // barrel/endcap boundary
-    feta_t unity(1.0);
-    fphi_t M_PI_144(0.0218);        // used in phi propagation
-    fphi_t tmp_A(1.464);            // constant in phi extrapolation
-    fphi_t tmp_B(2.82832);          // cosh(1.7): constant in phi extrapolation
+    PropTkObj_tkmu out;               // propagated track
+
+    // constants
+    // Conversions between binary and floating point (using example file to derive)
+    finvpt_t INVRINV_CONVERSION(76090E-11);
+    feta_t ETA_CONVERSION(512);
+    feta_t INVETA_CONVERSION(0.001953125);
+    fphi_t PHI_CONVERSION(219037);
+    fphi_t INVPHI_CONVERSION(0.0000045654);
+    fz0_t Z_CONVERSION(18);
+    fz0_t INVZ_CONVERSION(0.0556);
+
+
+    feta_t m_boundary(1.1);           // barrel/endcap boundary
+    feta_t m_unity(1.0);
+    fphi_t M_PI_144(0.0218);          // used in phi propagation
+    fphi_t m_phi_A(1.464);            // constant in phi extrapolation
+    fphi_t m_phi_B(2.82832);          // cosh(1.7): constant in phi extrapolation
+
+    fphi_t m_phi_add_conv(-0.0387851);  // conversion in phi, addition (sector-dependent)
+    fphi_t m_phi_mult_conv(0.232711);   // conversion in phi, multiplication (sector-dependent)
 
     // declare some variables
     fphi_t dzCorrPhi(1.0);
@@ -55,11 +72,9 @@ void tkmu_simple_hw(  TkObj_tkmu& in, PropTkObj_tkmu& out ){
     feta_t absSinhEta;
     if (in.hwSinhEta<0){
         absSinhEta = (in.hwSinhEta+8192)*INVETA_CONVERSION;     // use ap_fixed<>
-        sinhEta    = -1*(in.hwSinhEta+8192)*INVETA_CONVERSION;
     }
     else{
         absSinhEta = in.hwSinhEta*INVETA_CONVERSION;
-        sinhEta    = in.hwSinhEta*INVETA_CONVERSION;
     }
     if (DEBUG) std::cout << " -- |sinheta| = " << absSinhEta << std::endl;
     arcsinh(absSinhEta, inhwEta);
@@ -67,7 +82,6 @@ void tkmu_simple_hw(  TkObj_tkmu& in, PropTkObj_tkmu& out ){
     if (in.hwSinhEta<0) inhwEta*=-1;
     in.hwEta = inhwEta*ETA_CONVERSION;             // set input eta ap_int
 
-    if (DEBUG) std::cout << " -- sinheta = " << sinhEta << std::endl;
     if (DEBUG) std::cout << " -- eta     = " << inhwEta << std::endl;
 
     // Z0 (1024 = 2^10; number of unsigned bits)
@@ -89,36 +103,36 @@ void tkmu_simple_hw(  TkObj_tkmu& in, PropTkObj_tkmu& out ){
 
     // Phi0 (262144 = 2^18; number of unsigned bits)
     fphi_t inhwPhi;
-    if (in.hwPhi<0)
-        inhwPhi = -1*(in.hwPhi+262144)*INVPHI_CONVERSION;
-    else
-        inhwPhi = in.hwPhi*INVPHI_CONVERSION;
-    if (DEBUG) std::cout << " -- phi  = " << inhwPhi << std::endl;
+    if (in.hwPhi<0) inhwPhi = -1*(in.hwPhi+262144)*INVPHI_CONVERSION;
+    else inhwPhi = in.hwPhi*INVPHI_CONVERSION;
+    // sector-dependent conversion
+    inhwPhi = inhwPhi - m_phi_add_conv + (in.hwSector-1)*m_phi_mult_conv;
+
+    std::cout << " -- phi  = " << inhwPhi << std::endl;
+
 
     // Rinv -> 1/pT (16384 = 2^14; number of unsigned bits)
     finvpt_t inhwRinv;
     if (in.hwRinv<0)
-        inhwRinv = (in.hwRinv+16384)*INVRINV_CONVERSION;
+        inhwRinv = (in.hwRinv+16384)*76090E-11;  //INVRINV_CONVERSION;
     else
-        inhwRinv = in.hwRinv*INVRINV_CONVERSION;
+        inhwRinv = in.hwRinv*76090E-11; //*INVRINV_CONVERSION;
 
-    fphi_t invPt_f1(0.719297);
-    fphi_t inhwInvPt(inhwRinv*invPt_f1);
-    inhwInvPt += inhwRinv*87;  // PT_CONVERSION
-    if (in.hwQ<0) inhwInvPt*=-1;
+//    fphi_t inhwInvPt(inhwRinv*87.719297);
+    fphi_t inhwInvPt(inhwRinv*87);
+    if (in.hwQ==1) inhwInvPt*=-1;
 
     if (DEBUG) std::cout << " -- inrinv = " << in.hwRinv << std::endl;
     if (DEBUG) std::cout << " -- rinv   = " << inhwRinv << std::endl;
-    if (DEBUG) std::cout << " -- invptf = " << invPt_f1 << std::endl;
     if (DEBUG) std::cout << " -- invpt  = " << inhwInvPt << std::endl;
 
     // Do the calculations!
     if (DEBUG) std::cout << " FIRMWARE : Eta calculation " << std::endl;
-    if (abshwEta < boundary){
+    if (abshwEta < m_boundary){
         // barrel
         if (DEBUG) std::cout << " FIRMWARE : -- Barrel " << std::endl;
-        dzCorrPhi = unity;            // convert 1.0 to eta_t
-        etaProp   = boundary;         // 1.1;
+        dzCorrPhi = m_unity;            // convert 1.0 to eta_t
+        etaProp   = m_boundary;         // 1.1;
 
         // 2, 1DLUTs: [z0/550] * [1/cosh(|eta|)]
         deta_LUT(absInhwZ0,deta);                             // only takes positive values
@@ -154,7 +168,7 @@ void tkmu_simple_hw(  TkObj_tkmu& in, PropTkObj_tkmu& out ){
         // depending on sign(z0): multiply by '-1', if necessary, & choose the correct LUT!
         deta = 0;
         if (in.hwEta>0){
-            dzCorrPhi = unity-delta;
+            dzCorrPhi = m_unity-delta;
             // Check z0 value, call the correct LUT!
             if (inhwZ0<0){
                 delta_plus_LUT(absInhwZ0,deta);                                 // LUT: delta / (1-delta)
@@ -164,7 +178,7 @@ void tkmu_simple_hw(  TkObj_tkmu& in, PropTkObj_tkmu& out ){
                 delta_minus_LUT(inhwZ0,deta);                                   // LUT: delta / (1-delta)
         }
         else{
-            dzCorrPhi = unity+delta;
+            dzCorrPhi = m_unity+delta;
             if (inhwZ0<0){
                 delta_minus_LUT(absInhwZ0,deta);                                // LUT: delta / (1+delta)
                 deta *= -1;
@@ -197,12 +211,17 @@ void tkmu_simple_hw(  TkObj_tkmu& in, PropTkObj_tkmu& out ){
     invCosh(etaProp,invCoshEta_Phi);            // LUT: 1/cosh(x)
 
     // Include two constants used in calculation (1.464*cosh(1.7))
+    fphi_t tmp_A = m_phi_A;
+    fphi_t tmp_B = m_phi_B;
+
     tmp_A *= inhwInvPt;       // 1.464 * 1/pT
     tmp_B *= dzCorrPhi;       // cosh(1.7) * dzCorrPhi
     fphi_t tmp_val4   = tmp_A * tmp_B * invCoshEta_Phi;
     fphi_t outPropPhi = inhwPhi - tmp_val4 - M_PI_144;
 
     out.hwPropPhi = outPropPhi*PHI_CONVERSION;
+
+    std::cout << " OUTPROPPHI " << outPropPhi << std::endl;
 
     // Print results to screen for debugging
     if (DEBUG) std::cout << " FIRMWARE :    invCoshEta = " << invCoshEta_Phi << std::endl;
@@ -214,7 +233,8 @@ void tkmu_simple_hw(  TkObj_tkmu& in, PropTkObj_tkmu& out ){
     if (DEBUG) std::cout << " FIRMWARE : in.hwPhi      = " << in.hwPhi << std::endl;
     if (DEBUG) std::cout << " FIRMWARE : out.hwPropPhi = " << out.hwPropPhi << std::endl;
 
-    return;
+    return out;
 }
+
 
 // THE END

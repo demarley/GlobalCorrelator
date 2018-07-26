@@ -33,19 +33,38 @@ int main() {
     */
     // software data I/O
     std::vector<std::string> real_data;
-    read_file("../../../../config/CleanTracks_muminus_2-10_real.dat",real_data,"BX");
+//    read_file("../../../../config/CleanTracks_muminus_2-10_real.dat",real_data,"BX");
+    read_file("../../../../new_small_data_files/sw_track_data_0.dat",real_data,"BX");
+
 
     std::ofstream software_output;
-    software_output.open("../../../../software_prop.txt");
+    software_output.open("../../../../software_prop_7Jun2018.txt");
 
     // firmware data I/O
     std::vector<std::string> real_hw_data;
-    read_file("../../../../config/CleanTracks_muminus_2-10.dat",real_hw_data,"BX");
+//    read_file("../../../../config/CleanTracks_muminus_2-10.dat",real_hw_data,"BX");
+    read_file("../../../../new_small_data_files/hw_track_data_0.dat",real_hw_data,"BX");
 
     std::ofstream firmware_output;
-    firmware_output.open("../../../../firmware_prop.txt");
+    firmware_output.open("../../../../firmware_prop_7Jun2018.txt");
+
+
+    // Conversions between binary and floating point (using example file to derive)
+    finvpt_t RINV_CONVERSION(792055);
+    finvpt_t INVRINV_CONVERSION(1262538462E-15);
+    fphi_t PT_CONVERSION(87719298E-6);
+    feta_t ETA_CONVERSION(512);
+    feta_t INVETA_CONVERSION(19531261E-10);
+    fphi_t PHI_CONVERSION(211233);
+    fphi_t INVPHI_CONVERSION(4734119709E-15);
+    fz0_t Z_CONVERSION(17);
+    fz0_t INVZ_CONVERSION(5859375E-8);
+
+
+
 
     for (unsigned int i=0,size=real_data.size();i<size;i++){
+//    for (unsigned int i=1;i<2;i++){
 
         // :: SOFTWARE :: //
         std::string data_sw = real_data[i];
@@ -61,7 +80,7 @@ int main() {
         in_ref.eta = sinhEta2eta(sinhEta);    //-2.265;
         in_ref.phi = std::atof(values_sw.at(2).c_str()); // 1.26735;
         in_ref.z0  = std::atof(values_sw.at(4).c_str()); //-4.72;
-        in_ref.q   = (rinv>0) ? 1 : -1;       //-1;
+        in_ref.q   = (rinv>0) ? 0 : 1;       //-1;
 
         PropTrackObj_tkmu out_ref;
 
@@ -90,7 +109,7 @@ int main() {
         isNegative(rinv_str, isNegativeCharge);
         in_hw.hwRinv = std::bitset<15>(rinv_str).to_ulong();   //std::stoi(values_fw.at(1).c_str(),NULL,2);
         if (isNegativeCharge) in_hw.hwRinv *= -1;
-        in_hw.hwQ = (isNegativeCharge) ? -1 : 1;
+        in_hw.hwQ = (isNegativeCharge) ? 1 : 0;
 
         if (DEBUG) std::cout << " Looping over data - hwRinv = " << in_hw.hwRinv << std::endl;
 
@@ -119,20 +138,55 @@ int main() {
         in_hw.hwZ0 = std::bitset<12>(z0_str).to_ulong();   //std::stoi(values_fw.at(4).c_str(),NULL,2);
         if (isNegativeZ0) in_hw.hwZ0 *= -1;
 
+        // get sector value
+        unsigned int nEntries( values_fw.size() );
+        in_hw.hwSector = std::atoi( values_fw.at(nEntries-1).c_str() );
+
         if (DEBUG) std::cout << " Looping over data - hwZ0 = " << in_hw.hwZ0 << std::endl;
 
         //in_hw.hwInvPt: convert in algorithm with '1/pt = 87.719298*in_hw.hwRinv;' // pt = (0.3*3.8*0.01)/rinv
         //in_hw.hwEta:   convert in algorithm with LUT
 
-        tkmu_simple_hw(in_hw, out_hw);
+        out_hw = tkmu_simple_hw(in_hw);
 
         //std::cout << " HW  : eta   = " << float(in_hw.hwEta)/(ETA_CONVERSION) << " => " << float(out_hw.hwPropEta)/(ETA_CONVERSION) << std::endl;
         //std::cout << "     : phi   = " << float(in_hw.hwPhi)/(PHI_CONVERSION) << " => " << float(out_hw.hwPropPhi)/(PHI_CONVERSION) << std::endl;
 
         // save results to file
+        fphi_t inhwPhi; 
+        fphi_t outhwPhi;
+        if (isNegativePhi){
+            inhwPhi = -1*(in_hw.hwPhi+262144)*INVPHI_CONVERSION; 
+            outhwPhi = -1*(out_hw.hwPropPhi+262144)*INVPHI_CONVERSION;
+        }
+        else{
+            inhwPhi  = in_hw.hwPhi*INVPHI_CONVERSION;
+            outhwPhi = out_hw.hwPropPhi*INVPHI_CONVERSION;
+        }
+
+        // sector-dependent conversion
+        fphi_t m_phi_add_conv(-0.0387851);  // conversion in phi, addition (sector-dependent)
+        fphi_t m_phi_mult_conv(0.232711);   // conversion in phi, multiplication (sector-dependent)
+        inhwPhi = inhwPhi - m_phi_add_conv + (in_hw.hwSector-1)*m_phi_mult_conv;
+
+         
+        outhwPhi = outhwPhi - m_phi_add_conv + (in_hw.hwSector-1)*m_phi_mult_conv;
+
+        finvpt_t inhwRinv;
+        if (isNegativeCharge)
+            inhwRinv = -1*(in_hw.hwRinv+16384)*INVRINV_CONVERSION;
+        else
+            inhwRinv = in_hw.hwRinv*INVRINV_CONVERSION;
+
+        feta_t inhwZ0;
+        if (isNegativeZ0)
+            inhwZ0 = -1*(in_hw.hwZ0+1024)*INVZ_CONVERSION;
+        else
+            inhwZ0 = in_hw.hwZ0*INVZ_CONVERSION;
+
         firmware_output << in_hw.hwEta*INVETA_CONVERSION   << "," << out_hw.hwPropEta*INVETA_CONVERSION << ","
-                        << in_hw.hwPhi*INVPHI_CONVERSION   << "," << out_hw.hwPropPhi*INVPHI_CONVERSION << ","
-                        << in_hw.hwRinv*INVRINV_CONVERSION << "," << in_hw.hwZ0*INVZ_CONVERSION         << "\n";
+                        << inhwPhi   << "," << outhwPhi << ","
+                        << inhwRinv << "," << inhwZ0 << "\n";
     }
 
     std::cout << " Finished " << std::endl;
@@ -172,13 +226,9 @@ void read_file( const std::string &file_name, std::vector<std::string> &values, 
     std::string line("");
     if (ifile.is_open()){
 
+        std::string sector("");
         while (std::getline(ifile, line)) {
             std::string newstring(line);
-
-            // allow for comments
-            std::size_t lineComment = line.find(comment);
-            if (lineComment == 0) continue;
-            if (lineComment != std::string::npos) newstring = line.substr(0,lineComment);
 
             // remove all white spaces at the end of the string
             std::size_t space_pos = newstring.rfind(" ");
@@ -187,8 +237,19 @@ void read_file( const std::string &file_name, std::vector<std::string> &values, 
                 space_pos = newstring.rfind(" ");
             }
 
+            // BX= 000 event= 1 seed= CT_L1L2 phisector= 13
+            // get the sector number
+            std::size_t lineComment = newstring.find(comment);
+            if (lineComment == 0){
+                std::size_t total_size = newstring.size();
+                sector = (newstring.at(total_size-2)!=' ') ? newstring.substr(total_size-2,2) : newstring.substr(total_size-1,1);
+                std::cout << " SECTOR " << newstring << std::endl;
+                continue;
+            }
+
             // ignore empty lines
-            if(newstring.length()==0) continue;
+            if (newstring.length()==0) continue;
+            if (sector.size()>0) newstring += " "+sector;
 
             values.push_back(newstring); // put values into vector
         }
